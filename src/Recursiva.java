@@ -12,24 +12,77 @@ import java.util.Scanner;
  */
 public class Recursiva {
     public static void imprimir(int x) {
-        if (x>0) {
+        if (x > 0) {
             imprimir(x-1);
             System.out.println(x);            
         }    
     }
     
     public static void imprimir2(int x){
-        if (x>0) {
+        if (x > 0) {
             System.out.println(x);
             imprimir2(x-1);
         }
     }
     
-    public static void main(String[] ar) {
-        Recursiva re = new Recursiva();
-        Recursiva re1 = new Recursiva();
-        re.imprimir(5);
-        System.out.println("\n*******************\n");
-        re1.imprimir2(10);
+    public static int factorial(int fact){
+        if (fact > 0) {
+            int var = fact * factorial(fact - 1);
+        }
+            return 1;
+    }
+    
+    public static boolean Palindromo(String pal){
+        if(pal.length() == 0 || pal.length() == 1)
+            return true;
+        else
+            if(pal.charAt(0) == pal.charAt(pal.length()-1))
+                return Palindromo(pal.substring(1, pal.length()-1));
+        return false;
+    }
+    
+    public static void main(String[] arguments) {
+        Scanner sc = new Scanner(System.in);
+        sc.useDelimiter("\n");
+        Recursiva llamar = new Recursiva();
+        
+        int num, elegir, factor, nFact; String opc, palabra; boolean instPalabra;
+        
+        do{
+            System.out.println("\nBienvenido al Programa de Familiarización con las Funciones Recursivas\n"
+                    + "\n\t1. Imprimir Ascendente/Descendente\n\t2.Calcular Factorial\n\t3.Palindromo con Recursion\n\n");
+            
+            System.out.print("Elija una Opcion: ");
+            elegir = sc.nextInt();
+            
+            switch(elegir){
+                case 1:
+                    System.out.print("Ingrese numero:   ");
+                    num = sc.nextInt();
+
+                    llamar.imprimir(num);
+                    System.out.println("\n* * *\n");
+                    llamar.imprimir2(num);    
+                    break;
+                case 2:
+                    System.out.print("Numero a Factorizar:  ");
+                    nFact = sc.nextInt();
+                    factor = llamar.factorial(nFact);
+                    System.out.println("El Factorial de "+nFact+" es: "+factor);
+                    break;
+                case 3:
+                    System.out.println("Ingrese Palabra a Verificar:    ");
+                    palabra = sc.next();
+                    instPalabra = llamar.Palindromo(palabra);
+                    if (instPalabra == true) {
+                        System.out.println(palabra+"    SI es Palindromo");
+                    }else
+                        System.out.println(palabra+"    NO es Palindromo");
+                    break;
+            }
+            
+            System.out.print("Desea Salir?  ");
+            opc = sc.next();
+        }while(opc.equalsIgnoreCase("no"));   
     }
 }
