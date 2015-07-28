@@ -28,6 +28,7 @@ public class Recursiva {
     public static int factorial(int fact){
         if (fact > 0) {
             int var = fact * factorial(fact - 1);
+            return var;
         }
             return 1;
     }
@@ -71,7 +72,7 @@ public class Recursiva {
                     System.out.println("El Factorial de "+nFact+" es: "+factor);
                     break;
                 case 3:
-                    System.out.println("Ingrese Palabra a Verificar:    ");
+                    System.out.print("Ingrese Palabra a Verificar:    ");
                     palabra = sc.next();
                     instPalabra = llamar.Palindromo(palabra);
                     if (instPalabra == true) {
