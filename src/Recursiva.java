@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Recursiva {
     public static void imprimir(int x) {
         if (x > 0) {
-            imprimir(x-1);
+            imprimir(x-1);//Aqui se llama a si misma
             System.out.println(x);            
         }    
     }
@@ -21,13 +21,13 @@ public class Recursiva {
     public static void imprimir2(int x){
         if (x > 0) {
             System.out.println(x);
-            imprimir2(x-1);
+            imprimir2(x-1);//Aqui se llama a si misma
         }
     }
     
     public static int factorial(int fact){
         if (fact > 0) {
-            int var = fact * factorial(fact - 1);
+            int var = fact * factorial(fact - 1);//Aqui se llama a si misma
             return var;
         }
             return 1;
@@ -38,7 +38,7 @@ public class Recursiva {
             return true;
         else
             if(pal.charAt(0) == pal.charAt(pal.length()-1))
-                return Palindromo(pal.substring(1, pal.length()-1));
+                return Palindromo(pal.substring(1, pal.length()-1));//Aqui se llama a si misma
         return false;
     }
     
